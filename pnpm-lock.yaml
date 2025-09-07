@@ -33,6 +33,9 @@ importers:
       vite:
         specifier: ^7.0.4
         version: 7.1.4
+      wrangler:
+        specifier: ^4.34.0
+        version: 4.34.0(@cloudflare/workers-types@4.20250906.0)
 
 packages:
 
