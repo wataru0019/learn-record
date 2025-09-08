@@ -4,11 +4,12 @@ declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			recordCategory?: {
-				category: string,
-				goal: string,
-				deriveryDate: Date
-			}
+			db: ReturnType<typeof import("$lib/db/client").createDb> | undefined;
+			// recordCategory?: {
+			// 	category: string,
+			// 	goal: string,
+			// 	deriveryDate: Date
+			// }
 		}
 		// interface PageData {}
 		// interface PageState {}

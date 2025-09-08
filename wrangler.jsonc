@@ -8,5 +8,13 @@
 	"build": {
 		"command": "npm run build"
 	},
-	"compatibility_date": "2021-11-12"
+	"compatibility_date": "2021-11-12",
+	"d1_databases": [
+		{
+			"binding": "learn_record",
+			"database_name": "learn-record",
+			"database_id": "ebdadb24-e0b3-440a-9ebb-12076f9b9f07",
+			"migrations_dir": "drizzle"
+		}
+	]
 }
