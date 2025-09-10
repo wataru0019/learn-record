@@ -1,13 +1,14 @@
 import { createOpenAI } from '@ai-sdk/openai';
 import { streamText, type UIMessage, convertToModelMessages } from 'ai';
+import type { RequestHandler } from './$types';
 
-import { OPENAI_API_KEY } from '$env/static/private';
+export const POST: RequestHandler = async ({ request, platform }) => {
+  const apiKey = platform?.env?.OPENAI_API_KEY; // ← ここがポイント
+  if (!apiKey) {
+    return new Response('OPENAI_API_KEY is missing', { status: 500 });
+  }
 
-const openai = createOpenAI({
-  apiKey: OPENAI_API_KEY,
-});
-
-export async function POST({ request }) {
+  const openai = createOpenAI({ apiKey }); // モジュール外/ハンドラ内で初期化
   const { messages }: { messages: UIMessage[] } = await request.json();
 
   const result = streamText({
@@ -16,4 +17,4 @@ export async function POST({ request }) {
   });
 
   return result.toUIMessageStreamResponse();
-}
+};
