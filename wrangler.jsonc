@@ -9,6 +9,10 @@
 		"command": "npm run build"
 	},
 	"compatibility_date": "2021-11-12",
+	"compatibility_flags": [
+		"streams_enable_constructors",
+		"transformstream_enable_standard_constructor"
+	  ],
 	"d1_databases": [
 		{
 			"binding": "learn_record",
